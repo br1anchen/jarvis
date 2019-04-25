@@ -6,7 +6,7 @@ source ~/.config/nvim/plugins.vim
 " ============================================================================ "
 
 " Remap leader key to ,
-let g:mapleader=','
+let g:mapleader="\<Space>"
 
 " Disable line numbers
 set nonumber
@@ -322,12 +322,12 @@ endfunction
 " ============================================================================ "
 
 " === Denite shorcuts === "
-"   ;         - Browser currently open buffers
+"   <leader>b - Browser currently open buffers
 "   <leader>t - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and
 "   close window if no results
 "   <leader>j - Search current directory for occurences of word under cursor
-nmap ; :Denite buffer -split=floating -winrow=1<CR>
+nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
 nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
@@ -340,7 +340,7 @@ nmap <leader>f :NERDTreeFind<CR>
 
 "   <Space> - PageDown
 "   -       - PageUp
-noremap <Space> <PageDown>
+noremap = <PageDown>
 noremap - <PageUp>
 
 " === coc.nvim === "
@@ -356,7 +356,7 @@ nmap <leader>y :StripWhitespace<CR>
 "   <leader>h - Find and replace
 "   <leader>/ - Claer highlighted search terms while preserving history
 map <leader>h :%s///<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader>sc :nohlsearch<CR>
 
 " === Easy-motion shortcuts ==="
 "   <leader>w - Easy-motion highlights first word letters bi-directionally
@@ -373,6 +373,16 @@ nmap <leader>z :JsDoc<CR>
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
 vnoremap <leader>p "_dP
+
+" write file
+nmap <leader>fs :w<CR>
+
+" quit file
+nmap <leader>qq :q!<CR>
+
+" Quickly open/reload vim
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
