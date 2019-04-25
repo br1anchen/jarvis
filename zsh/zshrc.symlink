@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 
 # Name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME=""
+ZSH_THEME="spaceship"
 
 # TMUX
 # Automatically start tmux
@@ -27,7 +27,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node brew tmux)
+plugins=(git node brew tmux nvm osx)
 
 # User configuration
 # Hide user@hostname if it's expected default user
@@ -112,6 +112,11 @@ export EDITOR='nvim'
 # Enabled true color support for terminals
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+export TERM="xterm-256color"
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # Aliases
 alias vim="nvim"
 alias top="vtop --theme=wizard"
@@ -122,6 +127,3 @@ source $ZSH/oh-my-zsh.sh
 # Set Spaceship as prompt
 autoload -U promptinit; promptinit
 prompt spaceship
-SPACESHIP_PACKAGE_SHOW=false
-SPACESHIP_NODE_SHOW=false
-SPACESHIP_GIT_STATUS_STASHED=''
