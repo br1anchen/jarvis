@@ -338,7 +338,7 @@ nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 
-"   <Space> - PageDown
+"   = - PageDown
 "   -       - PageUp
 noremap = <PageDown>
 noremap - <PageUp>
@@ -354,7 +354,7 @@ nmap <leader>y :StripWhitespace<CR>
 
 " === Search shorcuts === "
 "   <leader>h - Find and replace
-"   <leader>/ - Claer highlighted search terms while preserving history
+"   <leader>sc - Claer highlighted search terms while preserving history
 map <leader>h :%s///<left><left>
 nmap <silent> <leader>sc :nohlsearch<CR>
 
@@ -369,6 +369,12 @@ cmap w!! w !sudo tee %
 " Generate jsdoc for function under cursor
 nmap <leader>z :JsDoc<CR>
 
+" === benmills/vimux shortcuts ==="
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
@@ -378,11 +384,24 @@ vnoremap <leader>p "_dP
 nmap <leader>fs :w<CR>
 
 " quit file
-nmap <leader>qq :q!<CR>
+nmap <leader>x :q!<CR>
+
+" quit vim
+nmap <leader>qq :quitall!<CR>
+
 
 " Quickly open/reload vim
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" window keys
+nnoremap <Leader>w< <C-w><
+nnoremap <Leader>w> <C-w>>
+nnoremap <Leader>w- <C-w>-
+nnoremap <Leader>w+ <C-w>+
+nnoremap <Leader>ws :split<CR>
+nnoremap <Leader>wv :vsplit<CR>
+nnoremap <Leader>wx :close<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "

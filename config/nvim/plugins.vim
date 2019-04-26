@@ -88,5 +88,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" tmux
+Plug 'benmills/vimux'
+
 " Initialize plugin system
 call plug#end()
