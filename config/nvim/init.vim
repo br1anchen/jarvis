@@ -329,7 +329,7 @@ endfunction
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap <leader>b :Denite buffer -split=floating -winrow=1<CR>
 nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
+nnoremap <leader>p :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
 " === Nerdtree shorcuts === "
@@ -344,9 +344,26 @@ noremap = <PageDown>
 noremap - <PageUp>
 
 " === coc.nvim === "
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
@@ -395,13 +412,14 @@ nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " window keys
-nnoremap <Leader>w< <C-w><
-nnoremap <Leader>w> <C-w>>
-nnoremap <Leader>w- <C-w>-
-nnoremap <Leader>w+ <C-w>+
-nnoremap <Leader>ws :split<CR>
-nnoremap <Leader>wv :vsplit<CR>
-nnoremap <Leader>wx :close<CR>
+nnoremap <Leader>v< <C-w><
+nnoremap <Leader>v> <C-w>>
+nnoremap <Leader>v- <C-w>-
+nnoremap <Leader>v+ <C-w>+
+nnoremap <Leader>v= <C-w>=
+nnoremap <Leader>vs :split<CR>
+nnoremap <Leader>vv :vsplit<CR>
+nnoremap <Leader>vd :close<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
