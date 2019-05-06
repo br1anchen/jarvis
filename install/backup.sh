@@ -20,6 +20,7 @@ files=(
   "$HOME/.config/alacritty"
   "$HOME/.zshrc"
   "$HOME/.tmux.conf"
+  "$HOME/.tmux.conf.local"
 )
 for filename in "${files[@]}"; do
     if [[ -d $filename ]]; then
