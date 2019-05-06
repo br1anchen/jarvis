@@ -43,6 +43,16 @@ do
   echo "---------------------------------------------------------"
 done
 
+cask_packages=(
+  "alacritty"
+)
+
+for i in "${cask_packages[@]}"
+do
+  brew cask install $i
+  echo "---------------------------------------------------------"
+done
+
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing Python NeoVim client.$(tput sgr 0)"
 echo "---------------------------------------------------------"
