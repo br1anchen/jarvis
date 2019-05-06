@@ -43,7 +43,10 @@ do
   echo "---------------------------------------------------------"
 done
 
+brew tap caskroom/cask
+
 cask_packages=(
+  "iterm2"
   "alacritty"
 )
 
