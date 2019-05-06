@@ -294,7 +294,7 @@ bind C-a send-prefix
 # move status line to top
 #set -g status-position top
 
-tmux_conf_theme_status_left=' ❐ #S | #(ipconfig getifaddr en0) | #{ipinfo} '
+tmux_conf_theme_status_left=' ❐ #S | LAN:#(ipconfig getifaddr en0) | PUB:#{ipinfo} '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 
 # List of plugins
