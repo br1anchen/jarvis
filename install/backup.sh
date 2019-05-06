@@ -22,9 +22,14 @@ files=(
   "$HOME/.tmux.conf"
 )
 for filename in "${files[@]}"; do
-    if [ ! -L $filename ]; then
+    if [[ -d $filename ]]; then
       echo "---------------------------------------------------------"
-      echo "$(tput setaf 2)JARVIS: Backing up $filename.$(tput sgr 0)"
+      echo "$(tput setaf 2)JARVIS: Backing up directory $filename.$(tput sgr 0)"
+      echo "---------------------------------------------------------"
+      (shopt -s dotglob; mv $filename/* $BACKUP_DIR)
+    elif [[ -f $filename ]]; then
+      echo "---------------------------------------------------------"
+      echo "$(tput setaf 2)JARVIS: Backing up file $filename.$(tput sgr 0)"
       echo "---------------------------------------------------------"
       mv $filename $BACKUP_DIR 2>/dev/null
     else
