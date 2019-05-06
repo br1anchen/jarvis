@@ -133,7 +133,6 @@ alias top="vtop --theme=wizard"
 alias ls="colorls -lA --sd"
 
 alias r_zsh_conf="source ~/.zshrc"
-alias r_tmux_conf="source ~/.tmux.conf"
 
 source $ZSH/oh-my-zsh.sh
 
