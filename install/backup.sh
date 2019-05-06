@@ -27,7 +27,7 @@ for filename in "${files[@]}"; do
       echo "---------------------------------------------------------"
       echo "$(tput setaf 2)JARVIS: Backing up directory $filename.$(tput sgr 0)"
       echo "---------------------------------------------------------"
-      (shopt -s dotglob; mv $filename/* $BACKUP_DIR)
+      (shopt -s dotglob; mv $filename/* $BACKUP_DIR/$filename/)
     elif [[ -f $filename ]]; then
       echo "---------------------------------------------------------"
       echo "$(tput setaf 2)JARVIS: Backing up file $filename.$(tput sgr 0)"
