@@ -27,7 +27,6 @@ echo "---------------------------------------------------------"
 
 packages=(
   "git"
-  "node"
   "tmux"
   "neovim"
   "python3"
@@ -35,12 +34,17 @@ packages=(
   "ripgrep"
   "fzf"
   "z"
+  "gpg"
 )
 
 for i in "${packages[@]}"
 do
-  brew install $i
-  echo "---------------------------------------------------------"
+    if brew ls --versions $i > /dev/null; then
+        echo "$i installed"
+    else
+        brew install $i
+    fi
+    echo "---------------------------------------------------------"
 done
 
 brew tap caskroom/cask
@@ -52,9 +56,47 @@ cask_packages=(
 
 for i in "${cask_packages[@]}"
 do
-  brew cask install $i
-  echo "---------------------------------------------------------"
+    if brew cask ls $i > /dev/null; then
+        echo "$i installed"
+    else
+        brew cask install $i
+    fi
+    echo "---------------------------------------------------------"
 done
+
+echo "---------------------------------------------------------"
+echo "$(tput setaf 2)JARVIS: Installing NVM.$(tput sgr 0)"
+echo "---------------------------------------------------------"
+
+if command -v nvm >/dev/null 2>&1; then
+    echo "NVM installed"
+else
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash 2>/dev/null
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+nvm install 'lts/*'
+nvm use 'lts/*'
+
+
+echo "---------------------------------------------------------"
+echo "$(tput setaf 2)JARVIS: Installing ruby gem.$(tput sgr 0)"
+echo "---------------------------------------------------------"
+
+if rvm --version >/dev/null 2>&1; then
+    echo "RVM installed"
+else
+    gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    curl -sSL https://get.rvm.io | bash 2>/dev/null
+fi
+
+rvm install ruby
+rvm --default use ruby
+
+gem install colorls
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing Python NeoVim client.$(tput sgr 0)"
@@ -67,12 +109,6 @@ echo "$(tput setaf 2)JARVIS: Installing node neovim package$(tput sgr 0)"
 echo "---------------------------------------------------------"
 
 npm install -g neovim
-
-echo "---------------------------------------------------------"
-echo "$(tput setaf 2)JARVIS: Installing spaceship prompt$(tput sgr 0)"
-echo "---------------------------------------------------------"
-
-npm install -g spaceship-prompt
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing vim linter (vint)$(tput sgr 0)"
@@ -90,7 +126,7 @@ echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing system fonts.$(tput sgr 0)"
 echo "---------------------------------------------------------"
 
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 localGit="/usr/local/bin/git"
@@ -156,6 +192,15 @@ echo "---------------------------------------------------------"
 
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
+
+echo "---------------------------------------------------------"
+echo "$(tput setaf 2)JARVIS: Installing spaceship prompt$(tput sgr 0)"
+echo "---------------------------------------------------------"
+
+npm install -g spaceship-prompt
+
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: System update complete. Currently running at 100% power. Enjoy.$(tput sgr 0)"
