@@ -332,6 +332,11 @@ nmap <leader>t :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>p :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
+" === gv.vim === "
+nmap <leader>gv :GV<CR>
+nmap <leader>gvl :GV<CR>
+nmap <leader>gvc :GV<CR>
+
 " === Nerdtree shorcuts === "
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree

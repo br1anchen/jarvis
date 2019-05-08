@@ -30,6 +30,15 @@ Plug 'rstacruz/vim-closer'
 " Improved motion in Vim
 Plug 'easymotion/vim-easymotion'
 
+" surround.vim: quoting/parenthesizing made simple
+Plug 'tpope/vim-surround'
+
+" Vim plugin for intensely orgasmic commenting
+Plug 'scrooloose/nerdcommenter'
+
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
+
 " Intellisense Engine
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
@@ -51,6 +60,8 @@ Plug 'Shougo/echodoc.vim'
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'jreybert/vimagit'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
