@@ -365,9 +365,16 @@ function! s:show_documentation()
   endif
 endfunction
 
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>z  <Plug>(coc-format-selected)
+nmap <leader>z  <Plug>(coc-format-selected)
+
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 " === Search shorcuts === "
 "   <leader>h - Find and replace
@@ -384,7 +391,7 @@ cmap w!! w !sudo tee %
 
 " === vim-jsdoc shortcuts ==="
 " Generate jsdoc for function under cursor
-nmap <leader>z :JsDoc<CR>
+nmap <leader>jz :JsDoc<CR>
 
 " === benmills/vimux shortcuts ==="
 " Prompt for a command to run
@@ -420,6 +427,8 @@ nnoremap <Leader>v= <C-w>=
 nnoremap <Leader>vs :split<CR>
 nnoremap <Leader>vv :vsplit<CR>
 nnoremap <Leader>vd :close<CR>
+
+nnoremap <Leader>ct :checktime<CR>
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
