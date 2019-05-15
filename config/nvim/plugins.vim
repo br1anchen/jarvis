@@ -39,6 +39,9 @@ Plug 'scrooloose/nerdcommenter'
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 
+" Start a * or # search from a visual block
+Plug 'nelstrom/vim-visual-star-search'
+
 " Intellisense Engine
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
