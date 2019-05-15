@@ -87,6 +87,11 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
 
+" Elixir support for vim
+Plug 'elixir-editors/vim-elixir'
+" Elixir 1.6 introduced the formatter: mix format
+Plug 'mhinz/vim-mix-format'
+
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'
