@@ -49,6 +49,9 @@ set cmdheight=1
 " or 'The only match'
 set shortmess+=c
 
+" enable spelling check
+set spell spelllang=en_us
+
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
