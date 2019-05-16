@@ -21,6 +21,7 @@ mkdir -p $BACKUP_DIR
 files=(
   "$HOME/.config/nvim"
   "$HOME/.config/alacritty"
+  "$HOME/.config/git"
   "$HOME/.zshrc"
   "$HOME/.tmux.conf"
   "$HOME/.tmux.conf.local"
