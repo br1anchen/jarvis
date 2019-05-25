@@ -340,6 +340,9 @@ nmap <leader>gv :GV<CR>
 nmap <leader>gvl :GV<CR>
 nmap <leader>gvc :GV<CR>
 
+" === vim-merginal === "
+nmap <leader>gm :Merginal<CR>
+
 " === Nerdtree shorcuts === "
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree

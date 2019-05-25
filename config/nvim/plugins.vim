@@ -65,6 +65,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'jreybert/vimagit'
+Plug 'idanarye/vim-merginal'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
