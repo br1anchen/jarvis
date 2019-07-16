@@ -139,3 +139,5 @@ source $ZSH/oh-my-zsh.sh
 # Set Spaceship as prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+export PATH=/Users/xiaochen/Library/Python/3.7/bin:$PATH

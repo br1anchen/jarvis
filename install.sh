@@ -26,15 +26,16 @@ echo "$(tput setaf 2)JARVIS: Installing system packages.$(tput sgr 0)"
 echo "---------------------------------------------------------"
 
 packages=(
+  "fzf"
   "git"
-  "tmux"
+  "gpg"
   "neovim"
   "python3"
-  "zsh"
   "ripgrep"
-  "fzf"
+  "the_silver_searcher"
+  "tmux"
   "z"
-  "gpg"
+  "zsh"
 )
 
 for i in "${packages[@]}"
