@@ -44,13 +44,13 @@ Plug 'nelstrom/vim-visual-star-search'
 
 " Intellisense Engine
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Tmux/Neovim movement integration
 Plug 'christoomey/vim-tmux-navigator'
 
 " Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', { 'commit': '29bfd4c53271c7a150def2388e059746ae4c1713' }
 
 " Snippet support
 Plug 'Shougo/neosnippet'
