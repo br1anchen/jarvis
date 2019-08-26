@@ -2,13 +2,14 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
+    "css",
+    "eelixir",
     "elixir",
-    "eelixir"
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact"
   ],
   "eslint.filetypes": [
     "javascript",
