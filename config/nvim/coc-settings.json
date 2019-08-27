@@ -9,13 +9,15 @@
     "javascriptreact",
     "json",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "typescript.tsx"
   ],
   "eslint.filetypes": [
     "javascript",
     "typescript",
     "typescriptreact",
-    "javascriptreact"
+    "javascriptreact",
+    "typescript.tsx"
   ],
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
