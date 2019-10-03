@@ -409,8 +409,8 @@ vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 " === gv.vim === "
 nmap <leader>gv :GV<CR>
-nmap <leader>gvl :GV<CR>
-nmap <leader>gvc :GV<CR>
+nmap <leader>gvl :GV!<CR>
+nmap <leader>gvc :GV?<CR>
 
 " === vim-merginal === "
 nmap <leader>gm :Merginal<CR>
