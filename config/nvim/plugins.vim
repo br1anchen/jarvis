@@ -96,6 +96,7 @@ Plug 'mhinz/vim-mix-format'
 " === UI === "
 " File explorer
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Colorscheme
 Plug 'mhartington/oceanic-next'
