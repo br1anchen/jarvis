@@ -40,9 +40,11 @@ Thumbs.db
 # Node #
 ######################
 npm-debug.log
+.tern-project
 
 # vi #
 ######################
 *~
 .vim/
 
+.vscode/
