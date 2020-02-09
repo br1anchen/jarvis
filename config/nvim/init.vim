@@ -543,6 +543,16 @@ map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 
+
+" === autozimu/LanguageClient-neovim ==="
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/.config/nvim/reason-lsp.exe'],
+    \ }
+
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
+nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
+
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer

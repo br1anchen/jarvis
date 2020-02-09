@@ -112,5 +112,17 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " tmux
 Plug 'benmills/vimux'
 
+" ReasonML
+Plug 'reasonml-editor/vim-reason-plus'
+
+" Graphql
+Plug 'jparise/vim-graphql'
+
+" LanguageClient
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 " Initialize plugin system
 call plug#end()
