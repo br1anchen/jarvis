@@ -279,18 +279,22 @@ let g:signify_sign_delete = '-'
 " ============================================================================ "
 
 " Enable true color support
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " Editor theme
 set background=dark
 try
-  colorscheme OceanicNext
+  colorscheme night-owl
 catch
   colorscheme slate
 endtry
 
 " Vim airline theme
-let g:airline_theme='space'
+let g:airline_theme='night_owl'
 
 " Add custom highlights in method that is executed every time a
 " colorscheme is sourced
