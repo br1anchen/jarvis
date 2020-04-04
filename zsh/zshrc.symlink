@@ -3,7 +3,6 @@ export ZSH=~/.oh-my-zsh
 
 # Name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="spaceship"
 
 # TMUX
 # Automatically start tmux
@@ -136,8 +135,6 @@ alias r_zsh_conf="source ~/.zshrc"
 
 source $ZSH/oh-my-zsh.sh
 
-# Set Spaceship as prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+eval "$(starship init zsh)"
 
 export PATH=/Users/xiaochen/Library/Python/3.7/bin:$PATH
