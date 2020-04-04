@@ -93,27 +93,11 @@ Plug 'elixir-editors/vim-elixir'
 " Elixir 1.6 introduced the formatter: mix format
 Plug 'mhinz/vim-mix-format'
 
-" === UI === "
-" File explorer
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Colorscheme
-Plug 'mhartington/oceanic-next'
-
-" Customized vim status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " tmux
 Plug 'benmills/vimux'
 
 " ReasonML
-Plug 'reasonml-editor/vim-reason-plus'
+Plug 'jordwalke/vim-reasonml'
 
 " Graphql
 Plug 'jparise/vim-graphql'
@@ -123,6 +107,27 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+"ALE: Asynchronous Lint Engine
+Plug 'dense-analysis/ale'
+
+" === UI === "
+" File explorer
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Colorscheme
+Plug 'flazz/vim-colorschemes'
+Plug 'haishanh/night-owl.vim'
+Plug 'mhartington/oceanic-next'
+
+" Customized vim status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Initialize plugin system
 call plug#end()

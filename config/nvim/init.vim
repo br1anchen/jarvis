@@ -201,7 +201,7 @@ try
 
 " === Vim airline ==== "
 " Enable extensions
-let g:airline_extensions = ['branch', 'hunks', 'coc']
+let g:airline_extensions = ['branch', 'hunks', 'coc', 'esy', 'reason']
 
 " Update section z to just have line number
 let g:airline_section_z = airline#section#create(['linenr'])
@@ -246,6 +246,11 @@ let g:airline_right_sep = '❯'
 
 " Don't show git changes to current file in airline
 let g:airline#extensions#hunks#enabled=0
+
+" reasonml
+let g:reasonml_project_airline=1
+let g:reasonml_syntastic_airline=1
+let g:reasonml_clean_project_airline=1
 
 catch
   echo 'Airline not installed. It should work after running :PlugInstall'
@@ -426,6 +431,20 @@ nmap <leader>f :NERDTreeFind<CR>
 noremap = <PageDown>
 noremap - <PageUp>
 
+" === ALE === "
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'reason': ['refmt'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/.config/nvim/rls']
+    \ }
+
 " === coc.nvim === "
 
 " Use <c-space> to trigger completion.
@@ -513,6 +532,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " === coc-prettier === "
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" === jordwalke/vim-reasonml === "
+autocmd FileType reason map <M-C> :ReasonPrettyPrint<Cr>
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace

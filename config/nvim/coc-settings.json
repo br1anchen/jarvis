@@ -24,12 +24,9 @@
   "diagnostic.infoSign": "•",
   "tsserver.formatOnType": false,
   "languageserver": {
-    "elixirLS": {
-      "command": "~/.config/nvim/elixir-ls/language_server.sh",
-      "filetypes": [
-        "elixir",
-        "eelixir"
-      ]
-    }
+    "reason": {
+      "command": "~/.config/nvim/rls",
+      "filetypes": ["reason"]
+     }
   }
 }
