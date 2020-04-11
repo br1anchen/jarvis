@@ -16,6 +16,7 @@ set noshowcmd
 
 " Yank and paste with the system clipboard
 set clipboard=unnamed
+vnoremap <C-c> "*y
 
 " Hides buffers instead of closing them
 set hidden
@@ -155,6 +156,20 @@ inoremap <silent><expr> <TAB>
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" === coc-git === "
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
@@ -578,6 +593,9 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
 nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
+
+" === skywind3000/asyncrun.vim ==="
+let g:asyncrun_open = 6
 
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to

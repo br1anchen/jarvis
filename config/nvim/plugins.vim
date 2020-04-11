@@ -45,6 +45,14 @@ Plug 'nelstrom/vim-visual-star-search'
 " Intellisense Engine
 " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'amiralies/coc-elixir'
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
 
 " Tmux/Neovim movement integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -63,9 +71,9 @@ Plug 'Shougo/echodoc.vim'
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 Plug 'junegunn/gv.vim'
 Plug 'jreybert/vimagit'
-Plug 'idanarye/vim-merginal'
 
 " === Javascript Plugins === "
 " Typescript syntax highlighting
@@ -110,6 +118,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 "ALE: Asynchronous Lint Engine
 Plug 'dense-analysis/ale'
+
+" Async tasks
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " === UI === "
 " File explorer

@@ -22,11 +22,5 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "tsserver.formatOnType": false,
-  "languageserver": {
-    "reason": {
-      "command": "~/.config/nvim/rls",
-      "filetypes": ["reason"]
-     }
-  }
+  "tsserver.formatOnType": false
 }
