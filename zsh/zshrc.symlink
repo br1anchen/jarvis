@@ -40,7 +40,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set location of z installation
-. /usr/local/etc/profile.d/z.sh
+. $HOME/.config/z/z.sh
 
 ## FZF FUNCTIONS ##
 
@@ -138,11 +138,17 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+RVM_PATH="$HOME/.rvm/bin"
 
 # Rust Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
+CARGO_PATH="$HOME/.cargo/bin"
 
 # fnm
-export PATH="$HOME/.fnm:$PATH"
+FNM_PATH="$HOME/.fnm"
+
+# elixir
+ELIXI_PATH="/usr/lib/elixir/bin"
+
+export PATH="$RVM_PATH:$CARGO_PATH:$FNM_PATH:$ELIXI_PATH:$PATH"
+
 eval "`fnm env --multi`"
