@@ -3,7 +3,6 @@ export ZSH=~/.oh-my-zsh
 
 # Name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="spaceship"
 
 # TMUX
 # Automatically start tmux
@@ -41,7 +40,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Set location of z installation
-. /usr/local/etc/profile.d/z.sh
+. $HOME/.config/z/z.sh
 
 ## FZF FUNCTIONS ##
 
@@ -137,8 +136,20 @@ alias r_zsh_conf="source ~/.zshrc"
 
 source $ZSH/oh-my-zsh.sh
 
-# Set Spaceship as prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+eval "$(starship init zsh)"
 
-export PATH=/Users/xiaochen/Library/Python/3.7/bin:$PATH
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+RVM_PATH="$HOME/.rvm/bin"
+
+# Rust Cargo
+CARGO_PATH="$HOME/.cargo/bin"
+
+# fnm
+FNM_PATH="$HOME/.fnm"
+
+# elixir
+ELIXI_PATH="/usr/lib/elixir/bin"
+
+export PATH="$RVM_PATH:$CARGO_PATH:$FNM_PATH:$ELIXI_PATH:$PATH"
+
+eval "`fnm env --multi`"

@@ -16,6 +16,7 @@ set noshowcmd
 
 " Yank and paste with the system clipboard
 set clipboard=unnamed
+vnoremap <C-c> "*y
 
 " Hides buffers instead of closing them
 set hidden
@@ -158,6 +159,20 @@ inoremap <silent><expr> <TAB>
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" === coc-git === "
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+
 " === NeoSnippet === "
 " Map <C-k> as shortcut to activate snippet if available
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -203,7 +218,7 @@ try
 
 " === Vim airline ==== "
 " Enable extensions
-let g:airline_extensions = ['branch', 'hunks', 'coc']
+let g:airline_extensions = ['branch', 'hunks', 'coc', 'esy', 'reason']
 
 " Update section z to just have line number
 let g:airline_section_z = airline#section#create(['linenr'])
@@ -249,6 +264,11 @@ let g:airline_right_sep = '❯'
 " Don't show git changes to current file in airline
 let g:airline#extensions#hunks#enabled=0
 
+" reasonml
+let g:reasonml_project_airline=1
+let g:reasonml_syntastic_airline=1
+let g:reasonml_clean_project_airline=1
+
 catch
   echo 'Airline not installed. It should work after running :PlugInstall'
 endtry
@@ -283,8 +303,10 @@ let g:javascript_plugin_flow = 1
 " ============================================================================ "
 
 " Enable true color support
-if (has("termguicolors"))
- set termguicolors
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
 endif
 
 " Editor theme
@@ -448,6 +470,20 @@ nmap <leader>f :NERDTreeFind<CR>
 noremap = <PageDown>
 noremap - <PageUp>
 
+" === ALE === "
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'reason': ['refmt'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/.config/nvim/rls']
+    \ }
+
 " === coc.nvim === "
 
 " Use <c-space> to trigger completion.
@@ -537,6 +573,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nnoremap <leader>p :Prettier<CR>
 
+" === jordwalke/vim-reasonml === "
+autocmd FileType reason map <M-C> :ReasonPrettyPrint<Cr>
+
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
@@ -565,6 +604,19 @@ nmap <leader>jz :JsDoc<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
+
+
+" === autozimu/LanguageClient-neovim ==="
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['~/.config/nvim/reason-lsp.exe'],
+    \ }
+
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
+nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
+
+" === skywind3000/asyncrun.vim ==="
+let g:asyncrun_open = 6
 
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
