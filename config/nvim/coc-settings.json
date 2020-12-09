@@ -22,5 +22,6 @@
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "tsserver.formatOnType": false
+  "tsserver.formatOnType": false,
+  "prettier.eslintIntegration": true
 }

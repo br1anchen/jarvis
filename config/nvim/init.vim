@@ -573,9 +573,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nnoremap <leader>p :Prettier<CR>
 
-" === jordwalke/vim-reasonml === "
-autocmd FileType reason map <M-C> :ReasonPrettyPrint<Cr>
-
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
 nmap <leader>y :StripWhitespace<CR>
@@ -605,7 +602,6 @@ map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 
-
 " === autozimu/LanguageClient-neovim ==="
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.config/nvim/reason-lsp.exe'],
@@ -618,6 +614,8 @@ nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
 " === skywind3000/asyncrun.vim ==="
 let g:asyncrun_open = 6
 
+" === jordwalke/vim-reasonml ==="
+autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer

@@ -110,9 +110,6 @@ Plug 'elixir-editors/vim-elixir'
 " Elixir 1.6 introduced the formatter: mix format
 Plug 'mhinz/vim-mix-format'
 
-" tmux
-Plug 'benmills/vimux'
-
 " ReasonML
 Plug 'jordwalke/vim-reasonml'
 
