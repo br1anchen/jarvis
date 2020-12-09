@@ -52,6 +52,8 @@ set shortmess+=c
 " enable spelling check
 set spell spelllang=en_us
 
+syntax enable
+
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
@@ -269,23 +271,43 @@ let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
 " === Signify === "
 let g:signify_sign_delete = '-'
 
+" === HerringtonDarkholme/yats.vim === "
+set re=0
+
+" === vim-javascript === "
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+
 " ============================================================================ "
 " ===                                UI                                    === "
 " ============================================================================ "
 
 " Enable true color support
-set termguicolors
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 " Editor theme
 set background=dark
 try
-  colorscheme OceanicNext
+  colorscheme xcodedark
 catch
   colorscheme slate
 endtry
 
+let g:xcodedark_emph_funcs = 1
+let g:xcodedark_emph_idents = 1
+let g:xcodedark_match_paren_style = 1
+
+augroup vim-colors-xcode
+    autocmd!
+augroup END
+
+autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+
 " Vim airline theme
-let g:airline_theme='space'
+let g:airline_theme='xcodedark'
 
 " Add custom highlights in method that is executed every time a
 " colorscheme is sourced
@@ -513,6 +535,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " === coc-prettier === "
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>p :Prettier<CR>
 
 " === vim-better-whitespace === "
 "   <leader>y - Automatically remove trailing whitespace
@@ -557,7 +580,6 @@ nmap <leader>x :q!<CR>
 " quit vim
 nmap <leader>qq :quitall!<CR>
 
-
 " Quickly open/reload vim
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -574,6 +596,25 @@ nnoremap <Leader>vd :close<CR>
 
 nnoremap <Leader>ct :checktime<CR>
 
+" majutsushi/tagbar
+nnoremap <Leader>tt :TagbarToggle<CR>
+
+" Use numbers to pick the tab you want (like iTerm)
+nnoremap <Leader>tn :tabnew<CR>
+nnoremap <Leader>tq :tabclose<CR>
+nnoremap <Leader>tl :tabs<CR>
+nnoremap <C-u> :tabprevious<CR>
+nnoremap <C-i> :tabnext<CR>
+
+" <Leader>q to toggle quickfix window (where you have stuff like Ag)
+" <Leader>qo to open it back up (rare)
+nmap <silent> <Leader>qc :cclose<CR>
+nmap <silent> <Leader>qo :copen<CR>
+
+"Move back and forth through previous and next buffers
+"with <Leader>z and <Leader>x
+nnoremap <silent> <Leader>z :bp<CR>
+nnoremap <silent> <Leader>x :bn<CR>
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "

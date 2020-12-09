@@ -131,6 +131,7 @@ export LC_ALL="en_US.UTF-8"
 alias vim="nvim"
 alias top="vtop --theme=wizard"
 alias ls="colorls -lA --sd"
+alias lg='lazygit'
 
 alias r_zsh_conf="source ~/.zshrc"
 

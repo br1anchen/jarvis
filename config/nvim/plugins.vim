@@ -39,6 +39,9 @@ Plug 'scrooloose/nerdcommenter'
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 
+" caser.vim: Easily change word casing with motions, text objects or visual mode.
+Plug 'arthurxavierx/vim-caser'
+
 " Start a * or # search from a visual block
 Plug 'nelstrom/vim-visual-star-search'
 
@@ -59,6 +62,8 @@ Plug 'Shougo/neosnippet-snippets'
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
+" Asynchronous Lint Engine
+"Plug 'dense-analysis/ale'
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
@@ -67,6 +72,8 @@ Plug 'junegunn/gv.vim'
 Plug 'jreybert/vimagit'
 Plug 'idanarye/vim-merginal'
 
+" === Lanaguage syntax === "
+Plug 'sheerun/vim-polyglot'
 " === Javascript Plugins === "
 " Typescript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
@@ -87,6 +94,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 " Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript'
 
 " Elixir support for vim
 Plug 'elixir-editors/vim-elixir'
@@ -99,7 +108,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Colorscheme
+Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
+Plug 'haishanh/night-owl.vim'
+Plug 'arzg/vim-colors-xcode'
+Plug 'rakr/vim-one'
+Plug 'ghifarit53/tokyonight-vim'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
@@ -111,6 +125,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " tmux
 Plug 'benmills/vimux'
+
+" tag
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
 " Initialize plugin system
 call plug#end()
