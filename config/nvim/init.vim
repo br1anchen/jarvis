@@ -602,15 +602,6 @@ map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 
-" === autozimu/LanguageClient-neovim ==="
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['~/.config/nvim/reason-lsp.exe'],
-    \ }
-
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-nnoremap <silent> gf :call LanguageClient#textDocument_formatting()<cr>
-nnoremap <silent> <cr> :call LanguageClient#textDocument_hover()<cr>
-
 " === skywind3000/asyncrun.vim ==="
 let g:asyncrun_open = 6
 

@@ -116,12 +116,6 @@ Plug 'jordwalke/vim-reasonml'
 " Graphql
 Plug 'jparise/vim-graphql'
 
-" LanguageClient
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 "ALE: Asynchronous Lint Engine
 Plug 'dense-analysis/ale'
 
