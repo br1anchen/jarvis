@@ -15,8 +15,9 @@ set nonumber
 set noshowcmd
 
 " Yank and paste with the system clipboard
-set clipboard=unnamed
-vnoremap <C-c> "*y
+set clipboard=unnamedplus
+vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+vnoremap <C-v> :r !xclip -o -sel -c<CR><CR>
 
 " Hides buffers instead of closing them
 set hidden
