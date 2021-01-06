@@ -55,6 +55,12 @@ set spell spelllang=en_us
 
 syntax enable
 
+if has('python')
+  set pyx=2
+elseif has('python3')
+  set pyx=3
+endif
+
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
@@ -141,23 +147,16 @@ augroup DENITE
     autocmd FileType denite call s:denite_my_settings()
 augroup end
 
-" === Coc.nvim === "
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
+" === dense-analysis/ale === "
+"let g:ale_fixers =
+"\ {'rust': ['rustfmt'],
+"\  'ocaml':['ocamlformat'],
+"\  'javascript': ['prettier'],
+"\  'js': ['prettier'],
+"\  'html': ['prettier'],
+"\  'css': ['prettier'],
+"\  'scss': ['prettier']}
 
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " === coc-git === "
 " navigate chunks of current buffer
@@ -479,13 +478,40 @@ let g:ale_fixers = {
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['~/.config/nvim/rls']
-    \ }
-
 " === coc.nvim === "
 
+let g:coc_global_extensions = [
+  \ 'coc-yank',
+  \ 'coc-tsserver',
+  \ 'coc-spell-checker',
+  \ 'coc-prettier',
+  \ 'coc-highlight',
+  \ 'coc-git',
+  \ 'coc-flow',
+  \ 'coc-eslint',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ ]
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+"Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -605,8 +631,6 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 " === skywind3000/asyncrun.vim ==="
 let g:asyncrun_open = 6
 
-" === jordwalke/vim-reasonml ==="
-autocmd FileType reason map <buffer> <D-C> :ReasonPrettyPrint<Cr>
 " Delete current visual selection and dump in black hole buffer before pasting
 " Used when you want to paste over something without it getting copied to
 " Vim's default buffer
@@ -656,6 +680,7 @@ nmap <silent> <Leader>qo :copen<CR>
 "with <Leader>z and <Leader>x
 nnoremap <silent> <Leader>z :bp<CR>
 nnoremap <silent> <Leader>x :bn<CR>
+
 " ============================================================================ "
 " ===                                 MISC.                                === "
 " ============================================================================ "

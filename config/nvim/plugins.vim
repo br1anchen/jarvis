@@ -46,16 +46,7 @@ Plug 'arthurxavierx/vim-caser'
 Plug 'nelstrom/vim-visual-star-search'
 
 " Intellisense Engine
-" Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-Plug 'amiralies/coc-elixir'
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-yank', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tmux/Neovim movement integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -70,8 +61,6 @@ Plug 'Shougo/neosnippet-snippets'
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
-" Asynchronous Lint Engine
-"Plug 'dense-analysis/ale'
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
@@ -82,6 +71,7 @@ Plug 'jreybert/vimagit'
 
 " === Lanaguage syntax === "
 Plug 'sheerun/vim-polyglot'
+
 " === Javascript Plugins === "
 " Typescript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
@@ -102,16 +92,12 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 " Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 
 " Elixir support for vim
 Plug 'elixir-editors/vim-elixir'
 " Elixir 1.6 introduced the formatter: mix format
 Plug 'mhinz/vim-mix-format'
-
-" ReasonML
-Plug 'jordwalke/vim-reasonml'
 
 " Graphql
 Plug 'jparise/vim-graphql'
