@@ -155,4 +155,4 @@ ELIXI_PATH="/usr/lib/elixir/bin"
 
 export PATH="$RVM_PATH:$CARGO_PATH:$FNM_PATH:$ELIXI_PATH:$PATH"
 
-eval "`fnm env --multi`"
+eval "`fnm env`"
