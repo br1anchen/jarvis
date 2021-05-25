@@ -162,12 +162,12 @@ fi
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing zsh-autosuggestions.$(tput sgr 0)"
 echo "---------------------------------------------------------"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing zsh-completions.$(tput sgr 0)"
 echo "---------------------------------------------------------"
-git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 echo "---------------------------------------------------------"
 echo "$(tput setaf 2)JARVIS: Installing zsh-syntax-highlighting.$(tput sgr 0)"
